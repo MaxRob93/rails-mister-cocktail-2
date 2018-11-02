@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.3'
 
+gem 'cloudinary'
+gem 'figaro'
 gem 'dotenv-rails', groups: [:development, :test]
 # Front-end gems
 gem 'autoprefixer-rails'
