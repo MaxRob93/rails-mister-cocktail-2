@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+  <% @sinistres.each do |sinistre| %>
+    <div class="col-xs-12 col-md-6 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path sinistre.image %>');">
+        <div class="card-category"><%= sinistre.place %></div>
+        <div class="card-description">
+          <h2><%= link_to sinistre.name, sinistre_path(sinistre) %></h2>
+          <p><%= sinistre.size %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

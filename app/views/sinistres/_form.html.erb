@@ -1,0 +1,37 @@
+<div class="container">
+  <%= form_for(@sinistre) do |f| %>
+  <% if @sinistre.errors.any? %>
+  <div class="errors-container">
+    <ul>
+      <% @sinistre.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Cambriolage, bris de vitre" %>
+
+
+    <div class="form-group">
+      <%= f.label :place %>
+      <%= f.text_field :place, class: 'form-control', placeholder: "Intérieur, extérieur" %>
+
+      <div class="form-group">
+        <%= f.label :size %>
+        <%= f.text_field :size, class: 'form-control', placeholder: "Big, medium, tiny" %>
+
+        <div class="form-group">
+          <%= f.label :image %>
+          <%= f.text_field :image, class: 'form-control', placeholder: "https://images.pexels.com/photos/155901/pexels-photo-155901.jpeg?cs=srgb&dl=accident-crash-debris-155901.jpg&fm=jpg" %>
+
+          <%= f.submit class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+

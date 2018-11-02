@@ -10,9 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_11_01_155234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "metiers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "repartitions", force: :cascade do |t|
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "sinistre_id"
+    t.bigint "metier_id"
+    t.index ["metier_id"], name: "index_repartitions_on_metier_id"
+    t.index ["sinistre_id"], name: "index_repartitions_on_sinistre_id"
+  end
+
+  create_table "sinistres", force: :cascade do |t|
+    t.string "name"
+    t.string "place"
+    t.string "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+  end
+
+  add_foreign_key "repartitions", "metiers"
+  add_foreign_key "repartitions", "sinistres"
 end
