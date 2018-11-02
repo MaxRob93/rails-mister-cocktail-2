@@ -34,7 +34,7 @@ class SinistresController < ApplicationController
 
   def destroy       # DELETE /sinistres/:id
     @sinistre.destroy
-    redirect_to sinistres_path
+    redirect_to root_path
   end
 
   private
@@ -43,6 +43,6 @@ class SinistresController < ApplicationController
   end
 
   def sinistre_params
-    params.require(:sinistre).permit(:name, :place, :size)
+    params.require(:sinistre).permit(:name, :place, :size, :image)
   end
 end
